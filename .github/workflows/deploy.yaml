@@ -18,10 +18,9 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "TOKEN_DISCORD=${{ secrets.TOKEN_DISCORD }}" >> .env
+          echo "TOKEN_DISCORD=${{ secrets.TOKEN_DISCORD }}" > .env
 
-      - name: Deploy with PM2
+      - name: Reload bot with PM2
         run: |
-          pm2 stop all || true
-          pm2 start src/init.js --name bot
+          pm2 start src/init.js --name bot || pm2 restart bot
           pm2 save
