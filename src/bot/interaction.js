@@ -1,4 +1,5 @@
 import say from "../interaction/say.js"
+import play from "../interaction/play.js";
 
 
 const interaction = async (interaction) => {
@@ -6,6 +7,10 @@ const interaction = async (interaction) => {
 
     if (interaction.commandName == 'say') {
         await say(interaction)
+    }
+
+    if (interaction.commandName == 'play'){
+        await play(interaction)
     }
 }
 
